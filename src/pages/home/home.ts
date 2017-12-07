@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
 
 import { ExplorePage } from '../explore/explore';
+import { StatsPage } from '../stats/stats';
+import { PlayerPage } from '../player/player';
 
 @Component({
   selector: 'page-home',
@@ -19,15 +21,14 @@ export class HomePage {
   };
 
   goToPlayer() {
-    this.navCtrl.push(ExplorePage);
+    this.navCtrl.push(PlayerPage);
   };
 
   goToStats() {
-    this.navCtrl.push(ExplorePage);
+    this.navCtrl.push(StatsPage);
   };
 
   triggerAlarm() {
-    this.navCtrl.push(ExplorePage);
   };
 
 }
