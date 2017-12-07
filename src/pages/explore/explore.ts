@@ -8,7 +8,7 @@ import { NavController } from 'ionic-angular';
 export class ExplorePage {
   public radios;
   constructor(public navCtrl: NavController) {
-    this.radios = ['Pop', 'Jazz', 'Techno', 'Country', 'Electronic', 'Blues', 'Classical'];
+    this.radios = ['Recommended', 'Pop', 'Jazz', 'Techno', 'Country', 'Electronic', 'Blues', 'Classical'];
   }
 
   playRadio(radio) {
