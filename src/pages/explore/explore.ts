@@ -6,9 +6,13 @@ import { NavController } from 'ionic-angular';
   templateUrl: 'explore.html'
 })
 export class ExplorePage {
-  public name;
+  public radios;
   constructor(public navCtrl: NavController) {
-    this.name = 'Pierre'
+    this.radios = ['Pop', 'Jazz', 'Techno', 'Country', 'Electronic', 'Blues', 'Classical'];
+  }
+
+  playRadio(radio) {
+    console.log('radio: ', radio);
   }
 
 }
