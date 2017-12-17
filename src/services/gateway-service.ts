@@ -3,8 +3,10 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 @Injectable()
-export class UserService {
+export class GatewayService {
   public url;
+  public currentPlayingSong;
+  public queue;
 
   constructor (private http: Http) {
     this.url = '';
@@ -28,6 +30,29 @@ export class UserService {
         })
         .catch(err => err);
     }
+  }
+
+  public playSong(song) {
+    var params = {
+      'type': 'play/song',
+      'method': 'POST',
+      'data': {
+        songId: song.id
+      }
+    }
+    this.gatewayCall(params).then((response) => {
+      this.currentPlayingSong = song;
+    });
+  }
+
+  public pauseSong() {
+    var params = {
+      'type': 'pause',
+      'method': 'POST',
+    }
+    this.gatewayCall(params).then((response) => {
+      // this.currentPlayingSong = song;
+    });
   }
 
 }

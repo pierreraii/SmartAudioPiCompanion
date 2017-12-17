@@ -3,12 +3,15 @@ import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
+import { HttpModule } from '@angular/http';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ExplorePage } from '../pages/explore/explore';
 import { PlayerPage } from '../pages/player/player';
 import { StatsPage } from '../pages/stats/stats';
+import { GatewayService } from '../services/gateway-service';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -16,11 +19,13 @@ import { StatsPage } from '../pages/stats/stats';
     HomePage,
     ExplorePage,
     PlayerPage,
-    StatsPage
+    StatsPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -28,11 +33,13 @@ import { StatsPage } from '../pages/stats/stats';
     HomePage,
     ExplorePage,
     PlayerPage,
-    StatsPage
+    StatsPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    GatewayService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
