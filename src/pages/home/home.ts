@@ -4,6 +4,7 @@ import { NavController } from 'ionic-angular';
 import { ExplorePage } from '../explore/explore';
 import { StatsPage } from '../stats/stats';
 import { PlayerPage } from '../player/player';
+import { GatewayService } from '../../services/gateway-service';
 
 @Component({
   selector: 'page-home',
@@ -12,7 +13,7 @@ import { PlayerPage } from '../player/player';
 export class HomePage {
   public name;
 
-  constructor(public navCtrl: NavController) {
+  constructor(public navCtrl: NavController, public gatewayService: GatewayService) {
     this.name = 'Pierre'
   }
 
@@ -29,6 +30,15 @@ export class HomePage {
   };
 
   triggerAlarm() {
+    var params = {
+      type: 'play/song',
+      data: {
+        songId: 'alarm'
+      }
+    }
+    this.gatewayService.gatewayCall(params).then((response) => {
+      console.log('response: ', response);
+    });
   };
 
 }

@@ -16,13 +16,16 @@ export class ExplorePage {
   playRadio(radio) {
     let params = {
       'type': 'play/radio',
-      'method': 'GET',
+      'method': 'POST',
       'data': {
-        radioType: this.radios.indexOf(radio)
+        radioType: this.radios.indexOf(radio) != 0 ? this.radios.indexOf(radio) : ''
       }
     }
     this.gatewayService.gatewayCall(params).then((response) => {
-      console.log('response: ', response);
+      if (response.data) {
+        this.gatewayService.queue = response.data.songs;
+        this.gatewayService.currentPlayingSong = this.gatewayService.queue[0];
+      }
     });
   }
 

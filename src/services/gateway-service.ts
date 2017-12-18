@@ -55,4 +55,24 @@ export class GatewayService {
     });
   }
 
+  public nextSong() {
+    let index = 0;
+    this.queue.forEach((element, key) => {
+      if (element.id == this.currentPlayingSong.id) {
+        index = key;
+      }
+    });
+    let songToPlay = this.queue[index];
+    var params = {
+      'type': 'play/song',
+      'method': 'POST',
+      'data': {
+        songId: songToPlay.id
+      }
+    }
+    this.gatewayCall(params).then((response) => {
+      this.currentPlayingSong = songToPlay;
+    });
+  }
+
 }
