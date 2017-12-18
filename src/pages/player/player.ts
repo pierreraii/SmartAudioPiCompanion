@@ -12,6 +12,11 @@ export class PlayerPage {
     this.playingSong = gatewayService.currentPlayingSong;
   }
 
+  play() {
+    let currentPlayingSong = this.gatewayService.currentPlayingSong;
+    this.gatewayService.playSong(currentPlayingSong);
+  }
+
   pause() {
     var params = {
       'type': 'pause',
