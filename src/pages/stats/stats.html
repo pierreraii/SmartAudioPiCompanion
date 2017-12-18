@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Welcome {{name}}
+      Welcome!
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -35,27 +35,10 @@
     </ion-card-content>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <strong>Morning genre</strong>
-    </ion-card-header>
-    <ion-card-content>
-      <strong>{{profile.morningGenre}}</strong>
-    </ion-card-content>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <strong>Evening genre</strong>
-    </ion-card-header>
-    <ion-card-content>
-      <strong>{{profile.eveningGenre}}</strong>
-    </ion-card-content>
-  </ion-card>
   <h2>Listenings</h2>
   <ion-card *ngFor="let item of stats" >
     <ion-card-header>
-      <strong>Day: {{item._id.day}} - Genre: {{radios[item_id.type]}}</strong>
+      <strong>Day: {{item._id.day}} - Genre: {{radios[item._id.type]}}</strong>
     </ion-card-header>
     <ion-card-content>
       <strong>Songs played: {{item.count}}</strong>

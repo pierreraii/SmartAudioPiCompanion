@@ -8,7 +8,7 @@ import { GatewayService } from '../../services/gateway-service';
 })
 export class StatsPage {
   public radios;
-  public stats = {};
+  public stats = [];
   public profile = {};
 
   constructor(public navCtrl: NavController, public gatewayService: GatewayService) {
@@ -20,6 +20,7 @@ export class StatsPage {
     }
     this.gatewayService.gatewayCall(params1).then((response) => {
       if (response) {
+        console.log('response.stats', response.stats);
         this.stats = response.stats;
       }
     });
