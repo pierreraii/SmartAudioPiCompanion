@@ -25,7 +25,7 @@ export class LoginPage {
       'data': this.user
     }
     this.gatewayService.gatewayCall(params).then((response) => {
-      if (response.data) {
+      if (response) {
         this.navCtrl.push(HomePage);
       }
     });
