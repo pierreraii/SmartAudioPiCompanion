@@ -28,6 +28,7 @@ export class ExplorePage {
     }
     this.gatewayService.gatewayCall(params).then((response) => {
       if (response.data) {
+        console.log('response.data', response.data);
         this.gatewayService.queue = response.data.songs;
         this.gatewayService.currentPlayingSong = this.gatewayService.queue[0];
         self.playSong(this.gatewayService.currentPlayingSong);

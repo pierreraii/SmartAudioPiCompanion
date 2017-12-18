@@ -37,10 +37,13 @@ export class GatewayService {
       'type': 'play/song',
       'method': 'POST',
       'data': {
-        songId: song.id
+        songId: song._id
       }
     }
+
+    console.log('params', params);
     this.gatewayCall(params).then((response) => {
+      console.log('res', response);
       this.currentPlayingSong = song;
     });
   }
