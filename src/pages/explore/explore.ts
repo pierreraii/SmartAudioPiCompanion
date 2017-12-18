@@ -1,3 +1,4 @@
+import { PlayerPage } from '../player/player';
 import { GatewayService } from '../../services/gateway-service';
 import { Component } from '@angular/core';
 import { NavController } from 'ionic-angular';
@@ -31,6 +32,7 @@ export class ExplorePage {
         this.gatewayService.queue = response.songs;
         this.gatewayService.currentPlayingSong = this.gatewayService.queue[0];
         self.playSong(this.gatewayService.currentPlayingSong);
+        this.navCtrl.push(PlayerPage);
       }
     });
   }
