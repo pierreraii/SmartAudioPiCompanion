@@ -12,4 +12,37 @@ export class PlayerPage {
     this.playingSong = gatewayService.currentPlayingSong;
   }
 
+  pause() {
+    var params = {
+      'type': 'pause',
+      'method': 'POST',
+    }
+    this.gatewayService.gatewayCall(params).then((response) => {
+      console.log('res', response);
+    });
+  }
+
+  next() {
+    let queue = this.gatewayService.queue;
+    let currentPlayingSong = this.gatewayService.currentPlayingSong;
+    let index = 0;
+    queue.forEach((element, key) => {
+      if (element.title == currentPlayingSong.title) {
+        index = key;
+      }
+    });
+    this.gatewayService.playSong(queue[index + 1]);
+  }
+
+  previous() {
+    let queue = this.gatewayService.queue;
+    let currentPlayingSong = this.gatewayService.currentPlayingSong;
+    let index = 0;
+    queue.forEach((element, key) => {
+      if (element.title == currentPlayingSong.title) {
+        index = key;
+      }
+    });
+    this.gatewayService.playSong(queue[index - 1]);
+  }
 }
