@@ -13,7 +13,12 @@ export class ExplorePage {
     this.radios = ['Recommended', 'Pop', 'Jazz', 'Techno', 'Country', 'Electronic', 'Blues', 'Classical'];
   }
 
+  playSong(song) {
+    this.gatewayService.playSong(song);
+  }
+
   playRadio(radio) {
+    let self = this;
     let params = {
       'type': 'play/radio',
       'method': 'POST',
@@ -25,12 +30,9 @@ export class ExplorePage {
       if (response.data) {
         this.gatewayService.queue = response.data.songs;
         this.gatewayService.currentPlayingSong = this.gatewayService.queue[0];
+        self.playSong(this.gatewayService.currentPlayingSong);
       }
     });
-  }
-
-  playSong(song) {
-    this.gatewayService.playSong(song);
   }
 
 }
