@@ -7,8 +7,8 @@ import { GatewayService } from '../../services/gateway-service';
   templateUrl: 'stats.html'
 })
 export class StatsPage {
-  public stats;
-  public profile;
+  public stats = {};
+  public profile = {};
 
   constructor(public navCtrl: NavController, public gatewayService: GatewayService) {
     let params1 = {
