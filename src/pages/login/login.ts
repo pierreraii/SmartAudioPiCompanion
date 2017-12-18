@@ -20,7 +20,6 @@ export class LoginPage {
 
   public submit() {
     this.navCtrl.push(HomePage);
-    return;
     var params = {
       'type': 'login',
       'data': this.user
