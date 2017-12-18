@@ -7,6 +7,7 @@
 </ion-header>
 
 <ion-content padding>
+  <h2>Statistics</h2>
   <ion-card>
     <ion-card-header>
       <strong>Songs listened to in total</strong>
@@ -51,4 +52,16 @@
       <strong>{{profile.eveningGenre}}</strong>
     </ion-card-content>
   </ion-card>
+  <h2>Listenings</h2>
+  <ion-card *ngFor="let item of stats" >
+    <ion-card-header>
+      <strong>Day: {{item._id.day}} - Genre: {{radios[item_id.type]}}</strong>
+    </ion-card-header>
+    <ion-card-content>
+      <strong>Songs played: {{item.count}}</strong>
+      <strong>Time played: {{item.totalLength}}</strong>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
+
+

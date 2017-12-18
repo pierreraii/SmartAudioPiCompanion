@@ -9,8 +9,11 @@ import { GatewayService } from '../../services/gateway-service';
 export class StatsPage {
   public stats;
   public profile;
+  public radios;
 
   constructor(public navCtrl: NavController, public gatewayService: GatewayService) {
+    this.radios = ['Recommended', 'Pop', 'Jazz', 'Techno', 'Country', 'Electronic', 'Blues', 'Classical'];
+
     let params1 = {
       'type': 'statistics',
       'method': 'GET'
