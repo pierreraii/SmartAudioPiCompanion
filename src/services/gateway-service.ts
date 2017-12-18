@@ -9,21 +9,21 @@ export class GatewayService {
   public queue;
 
   constructor (private http: Http) {
-    this.url = '';
+    this.url = 'http://192.168.137.32:13629/api';
   }
 
   public gatewayCall(params) {
     if (params.method == 'GET') {
-      return this.http.get(this.url)
+      return this.http.get(`${this.url}/${params.type}`)
         .toPromise()
         .then(response => {
           return response.json();
         })
         .catch(err => err);
     } else {
-      let headers = new Headers({ 'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8' });
+      let headers = new Headers({ 'Content-Type': 'application/json; charset=UTF-8' });
 
-      return this.http.post(this.url, params.data)
+      return this.http.post(`${this.url}/${params.type}`, params.data)
         .toPromise()
         .then(response => {
           return response.json();
