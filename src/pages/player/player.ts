@@ -37,6 +37,8 @@ export class PlayerPage {
       }
     });
     this.gatewayService.playSong(queue[index + 1]);
+    this.gatewayService.currentPlayingSong = queue[index + 1];
+    this.playingSong = this.gatewayService.currentPlayingSong;
   }
 
   previous() {
@@ -49,5 +51,7 @@ export class PlayerPage {
       }
     });
     this.gatewayService.playSong(queue[index - 1]);
+    this.gatewayService.currentPlayingSong = queue[index - 1];
+    this.playingSong = this.gatewayService.currentPlayingSong;
   }
 }
