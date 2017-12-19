@@ -9,7 +9,7 @@ export class GatewayService {
   public queue;
 
   constructor (private http: Http) {
-    this.url = 'http://192.168.137.32:13629/api';
+    this.url = 'http://192.168.137.55:13629/api';
   }
 
   public gatewayCall(params) {
